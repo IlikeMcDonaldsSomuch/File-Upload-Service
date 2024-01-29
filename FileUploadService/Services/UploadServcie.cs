@@ -48,14 +48,15 @@ namespace FileUploadService.Services
 
                 var authClaims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, "Thananun Saelim"),
+                    //new Claim(ClaimTypes.Name, "Thananun Saelim"),
+
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
 
                 var token = new JwtSecurityToken(
                   _jwtSetting.Issuer,
                   _jwtSetting.Issuer,
-                  authClaims,
+                  null,
                   expires: _expired,
                   signingCredentials: credentials);
 
